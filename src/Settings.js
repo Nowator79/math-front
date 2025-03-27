@@ -1,1 +1,1 @@
-export const HOST = "http://math-server.local/";
+export const HOST = "http://mathserver.dfgbolcb.beget.tech/";
