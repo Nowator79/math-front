@@ -1,0 +1,16 @@
+input[type=button],
+input[type=submit]{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 458px;
+	height: 50px;
+	background: #CFD4FE;
+	border-radius: 15px;
+	transition: .3s;
+	border: unset;
+
+	&:hover{
+		background-color: var(--main-bg-color);
+	}
+}

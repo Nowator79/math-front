@@ -1,0 +1,91 @@
+.footer{
+	background-color: var(--main-bg-color);
+	padding: 40px;
+	border-radius: 15px 15px 0 0;
+	h2{
+		color: #ffffff;
+		font-size: 36px;
+	}
+	h3{
+		color: #ffffff;
+		font-size: 24px;
+	}
+	.footer-content{
+		display: flex;
+		gap: 30px;
+
+		.footer-contacts{
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			padding: 10px;
+			background: var(--lilac-color);
+			border: 1px solid var(--violet-color);
+			border-radius: 15px;
+			font-size: 36px;
+			a{
+				padding: 10px;
+				font-weight: 500;
+				color: #000000;
+				text-decoration: none !important;
+				border: none !important;
+				span{
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+
+	.footer-menu-block{
+		display: flex;
+		gap: 30px;
+		.footer-menu{
+			width: 160px;
+			padding: 10px;
+
+			p{
+				height: 18px;
+				border-bottom: 1px solid var(--violet-color);
+				display: flex;
+				align-items: center;
+				/* Клиентам */
+
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 130%;
+                margin: 0;
+				color: var(--violet-color);
+			}
+
+			ul{
+				list-style-type:  none;
+				padding: 0;
+				margin: 0;
+				li{
+					a{
+						font-size: 14px;
+						color: #ffffff;
+						font-weight: 600;
+						text-decoration: unset;
+					}
+				}
+			}
+		}
+	}
+
+	.footer-under-text{
+		font-size: 14px;
+		color: #000000;
+		font-weight: 600;
+		padding: 16px;
+		border: solid 1px var(--lilac-color);
+		margin-top: 10px;
+		border-bottom: 0;
+		border-left: 0;
+		border-right: 0;
+		text-align: right;
+		p{
+			margin: 0;
+		}
+	}
+}

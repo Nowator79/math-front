@@ -1,0 +1,32 @@
+.checkbox-container {
+	display: flex;
+	align-items: center;
+	font-family: Arial, sans-serif;
+}
+
+.checkbox-container input[type="checkbox"] {
+	margin-right: 10px;
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	border-radius: 5px;
+	border: 2px solid var(--lilac-color); /* Цвет рамки */
+	appearance: none;
+	outline: none;
+	transition: background-color 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked {
+	background-color: var(--lilac-color); /* Цвет фона при выборе */
+	border-color: var(--lilac-color);
+	background-image: url(/src/images/check.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+}
+
+.checkbox-container label {
+	cursor: pointer;
+	color: #000;
+}
