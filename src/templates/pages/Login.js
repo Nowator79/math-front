@@ -8,6 +8,7 @@ import Checkbox from "./../ui/Checkbox";
 import "./Login.css";
 import {HOST} from './../../Settings';
 import React, { Component } from 'react';
+import {DataConsumer} from './../../DataUserContext';
 
 class Login extends Component {
 	constructor(props) {
@@ -32,8 +33,6 @@ class Login extends Component {
 	// Обработчик отправки формы
 	async handleSubmit(event) {
 		event.preventDefault(); // Предотвращаем стандартное поведение формы
-		console.log(this.state);
-
 		const { login, password } = this.state;
 
 		// Валидация формы
@@ -53,10 +52,8 @@ class Login extends Component {
 
 			if (response.ok) {
 				alert('Форма успешно отправлена!');
-				// this.setState({
-				// 	login: '',
-				// 	password: '',
-				// });
+				const responseDataUser = await response.json();
+				this.props.context.setData(responseDataUser.body);
 			} else {
 				alert('Ошибка при отправке формы.');
 			}
@@ -72,7 +69,7 @@ class Login extends Component {
 				<SimpleBlock>
 					<div className="page-login">
 						<Form handleSubmit={this.handleSubmit}>
-							<h1>Авторизация</h1>
+							<h1>Вход в личный кабинет</h1>
 							<Input handle={this.handleChange} name="login" label="E-mail" isFill={true}></Input>
 							<Input handle={this.handleChange} name="password" label="Пароль" isFill={true}></Input>
 							<FormRow>
@@ -92,4 +89,10 @@ class Login extends Component {
 	}
 }
 
-export default Login;
+export default function LoginWithContext(props) {
+	return (
+		<DataConsumer>
+			{context => <Login {...props} context={context} />}
+		</DataConsumer>
+	);
+}

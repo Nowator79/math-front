@@ -40,9 +40,8 @@
 		display: flex;
 		gap: 30px;
 		.footer-menu{
-			width: 160px;
+			width: 220px;
 			padding: 10px;
-
 			p{
 				height: 18px;
 				border-bottom: 1px solid var(--violet-color);

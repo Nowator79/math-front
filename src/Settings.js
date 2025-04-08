@@ -1,1 +1,1 @@
-export const HOST = "http://mathserver.dfgbolcb.beget.tech/";
+export const HOST = "https://radium-vadim.ru/server/";

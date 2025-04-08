@@ -1,5 +1,6 @@
 .header{
 	padding: 20px;
+	background-image: url(/src/images/bg.png);
 	
 	.header-menu{
 		height: 87px;

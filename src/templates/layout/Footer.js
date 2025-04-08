@@ -28,11 +28,11 @@ const Footer = ({settings}) => {
 
 					<div className='footer-menu-block'>
 						<div className='footer-menu'>
-							<p>Клиентам</p>
+							<p>Новым пользователям</p>
 							<ul>
-								<li><a href="">Контакты</a></li>
-								<li><a href="">О нас</a></li>
-								<li><a href="">Отзывы</a></li>
+								<li><a href="/contacts/">Контакты</a></li>
+								<li><a href="/about/">О нас</a></li>
+								{/* <li><a href="">Отзывы</a></li> */}
 							</ul>
 						</div>
 						<div className='footer-menu'>

@@ -8,6 +8,7 @@ import Login from "./templates/pages/Login";
 import NoPage from "./templates/pages/NoPage";
 import Person from "./templates/pages/Person";
 import React, { Component } from 'react';
+import { DataConsumer } from './DataUserContext';
 import {HOST} from './Settings';
 
 class App extends Component {
@@ -27,7 +28,13 @@ class App extends Component {
 						<Route path="/" element={<Layout settings={this.state.settings} />}>
 							<Route index element={<Home />} />
 							<Route path="/login/" element={<Login />} />
-							<Route path="/person/" element={<Person />} />
+							<Route path="/person/" element={
+								<DataConsumer>
+									{({ user }) => (
+										<Person user={user} />
+									)}
+								</DataConsumer>
+							} />
 							<Route path="*" element={<NoPage />} />
 						</Route>
 					</Routes>
@@ -42,14 +49,13 @@ class App extends Component {
 
 	componentDidMount(){
 
-		
 		fetch(HOST + "api/settings/",
 			{
 				credentials: 'include',
 			}
 		)
-			.then(res => res.json())
-			.then(
+		.then(res => res.json())
+		.then(
 			(result) => {
 				this.setState({
 					isLoaded: true,
@@ -64,7 +70,29 @@ class App extends Component {
 					error
 				});
 			}
+		);
+
+		fetch(HOST + "api/user/get/",
+			{
+				credentials: 'include',
+			}
 		)
+		.then(res => res.json())
+		.then(
+			(result) => {
+				console.log(result);
+			},
+			// Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
+			// чтобы не перехватывать исключения из ошибок в самих компонентах.
+			(error) => {
+				this.setState({
+					isLoaded: true,
+					error
+				});
+			}
+		);
+
+		
 	}
 }
 
