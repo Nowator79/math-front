@@ -35,13 +35,13 @@ const Footer = ({settings}) => {
 								{/* <li><a href="">Отзывы</a></li> */}
 							</ul>
 						</div>
-						<div className='footer-menu'>
+						{/* <div className='footer-menu'>
 							<p>Пользователям</p>
 							<ul>
 								<li><a href="">Уроки</a></li>
 								<li><a href="">Статистика</a></li>
 							</ul>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				

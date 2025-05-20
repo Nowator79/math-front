@@ -1,1 +1,1 @@
-export const HOST = "https://radium-vadim.ru/server/";
+export const HOST = "https://www.radium-vadim.ru/server/";

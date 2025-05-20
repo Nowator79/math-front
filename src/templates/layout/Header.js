@@ -7,21 +7,23 @@ import PersonalMenu from "./../blocks/PersonalMenu"
 
 const Header = () => {
 	return (
-		<>
-			<PersonalMenu />
-			<div className="header">
-				<Container>
-					<div className="header-menu">
-						<Logo></Logo>
-						<DataConsumer>
-							{({ user, clearData }) => (
-								<Person user={user}></Person>
-							)}
-						</DataConsumer>
+		<DataConsumer>
+			{({ user }) => (
+				<>
+					<PersonalMenu user={user} />
+					<div className="header">
+						<Container>
+							<div className="header-menu">
+								<Logo></Logo>
+							
+										<Person user={user}></Person>
+								
+							</div>
+						</Container>
 					</div>
-				</Container>
-			</div>
-		</>
+				</>
+			)}
+		</DataConsumer>
 	);
 };
 

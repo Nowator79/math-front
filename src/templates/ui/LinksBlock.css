@@ -1,0 +1,31 @@
+.block-links{
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	gap: 30px;
+	a{
+		display: flex;
+		width: 100%;
+		padding: 10px;
+		border: 1px solid var(--violet-color);
+		border-radius: 15px;
+		text-align: center;
+		font-weight: bold;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-around;
+		color: var(--violet-color);
+		text-decoration: none;
+		font-size: 16px;
+		transition: .3s;
+		span{
+			height: 20px;
+		}
+		img{
+			width: 100%;
+		}
+		&:hover{
+			font-size: 18px;
+		}
+	}
+}

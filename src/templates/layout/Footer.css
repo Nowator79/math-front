@@ -5,10 +5,16 @@
 	h2{
 		color: #ffffff;
 		font-size: 36px;
+		@media screen and (max-width: 991px){
+			font-size: 24px;
+		}
 	}
 	h3{
 		color: #ffffff;
 		font-size: 24px;
+		@media screen and (max-width: 991px){
+			font-size: 18px;
+		}
 	}
 	.footer-content{
 		display: flex;
@@ -29,9 +35,30 @@
 				color: #000000;
 				text-decoration: none !important;
 				border: none !important;
+				line-height: 100%;
+				height: fit-content;
 				span{
 					margin-left: 10px;
 				}
+				@media screen and (max-width: 991px){
+					padding: 5px;
+					svg{
+						width: 30px;
+						height: 30px;
+					}
+					span{
+						font-size: 16px;
+						font-weight: 700;
+					}
+				}
+				
+			}
+		}
+		@media screen and (max-width: 991px){
+			flex-wrap: wrap;
+	
+			&>*{
+				width: 100%;
 			}
 		}
 	}
@@ -43,7 +70,6 @@
 			width: 220px;
 			padding: 10px;
 			p{
-				height: 18px;
 				border-bottom: 1px solid var(--violet-color);
 				display: flex;
 				align-items: center;

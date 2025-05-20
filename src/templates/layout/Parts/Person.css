@@ -5,6 +5,7 @@
 	color: #121212;
 	gap: 9px;
 	font-weight: 600;
+	margin: 0;
 	.person-name{
 		margin: 0;
 		font-style: normal;
@@ -12,5 +13,15 @@
 		font-size: 16px;
 		line-height: 20px;
 		color: #121212;
+		cursor: pointer;
+	}
+}
+
+.login-bock{
+	display: flex;
+	gap: 30px;
+	@media screen and (max-width: 991px){
+		flex-direction: column;
+		gap: 10px;
 	}
 }

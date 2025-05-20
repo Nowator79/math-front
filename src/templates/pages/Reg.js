@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 import {DataConsumer} from './../../DataUserContext';
 import { ReactComponent as LogoSvg } from './../../images/logo-site.svg';
 
-class Login extends Component {
+class Reg extends Component {
 	constructor(props) {
 		super(props);
 		// Инициализация состояния для хранения данных формы
@@ -34,10 +34,10 @@ class Login extends Component {
 	// Обработчик отправки формы
 	async handleSubmit(event) {
 		event.preventDefault(); // Предотвращаем стандартное поведение формы
-		const { login, password } = this.state;
+		const { name, login, password } = this.state;
 
 		// Валидация формы
-		if (!login || !password) {
+		if (!login || !password|| !login) {
 			alert('Все поля обязательны для заполнения!');
 			return;
 		}
@@ -45,19 +45,15 @@ class Login extends Component {
 		try {
 			// Отправляем данные на сервер
 			
-			const response = await fetch(HOST + 'api/user/login/', {
+			const response = await fetch(HOST + 'api/user/reg/', {
 				method: 'POST',
 				credentials: 'include',
-				body: JSON.stringify({ login, password }), // Преобразуем данные в JSON
+				body: JSON.stringify({ name, login, password}), // Преобразуем данные в JSON
 			});
 
 			if (response.ok) {
 				const responseDataUser = await response.json();
-				if (responseDataUser.success){
-					this.props.context.setData(responseDataUser.body);
-				} else {
-					alert(responseDataUser.errors[0].name);
-				}
+				this.props.context.setData(responseDataUser.body);
 			} else {
 				alert('Ошибка при отправке формы.');
 			}
@@ -73,14 +69,11 @@ class Login extends Component {
 				<SimpleBlock>
 					<div className="page-login">
 						<Form handleSubmit={this.handleSubmit}>
-							<h1>Вход в личный кабинет</h1>
+							<h1>Регистрация</h1>
+							<Input handle={this.handleChange} name="name" label="Имя" isFill={true}></Input>
 							<Input handle={this.handleChange} name="login" label="E-mail" isFill={true}></Input>
 							<Input handle={this.handleChange} name="password" label="Пароль" isFill={true}></Input>
-							<FormRow>
-								<Checkbox name="isremember"></Checkbox>
-								<a href="">Забыли пароль?</a>
-							</FormRow>
-							<Button text="Войти"></Button>
+							<Button text="Зарегистрироваться"></Button>
 						</Form>
 						<div className="logo-login">
 							<LogoSvg/>
@@ -93,10 +86,10 @@ class Login extends Component {
 	}
 }
 
-export default function LoginWithContext(props) {
+export default function RegWithContext(props) {
 	return (
 		<DataConsumer>
-			{context => <Login {...props} context={context} />}
+			{context => <Reg {...props} context={context} />}
 		</DataConsumer>
 	);
 }

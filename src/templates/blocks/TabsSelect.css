@@ -1,0 +1,20 @@
+.tab-select{
+	display: flex;
+	gap: 30px;
+	flex-wrap: wrap;
+	.tab-select--item{
+		padding: 10px 15px;
+		background-color: var(--blue-color);
+		color: var(--white-color);
+		border-radius: 15px;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 130%;
+		text-decoration: unset;
+		padding-bottom: 13px;
+		&.active{
+			background-color: var(--violet-color)
+		}
+	}
+}

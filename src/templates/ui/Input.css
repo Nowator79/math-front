@@ -12,7 +12,7 @@
 		box-sizing: border-box;
 		min-width: 300px;
 		height: 50px;
-		background: var(--lilac-color);
+		background: var(--white-color);
 		border: 1px solid var(--violet-color);
 		border-radius: 15px;
 		padding: 0 38px 0 38px;

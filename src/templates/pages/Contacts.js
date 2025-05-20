@@ -3,7 +3,12 @@ import { Container } from "react-bootstrap";
 const Contacts = () => 	{
 	return <>
 		<Container>
-			<h1>Contacts</h1>
+			<div className="heading">
+				<h1>Контакты</h1>
+			</div>
+			<div>
+			
+			</div>
 		</Container>
 	</>
 };

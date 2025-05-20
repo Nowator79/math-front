@@ -1,8 +1,10 @@
 import "./Logo.css"
+import { ReactComponent as LogoIcon } from '../../../images/logo-site.svg';
+
 const Logo = () => 	{
 	return <div>
 		<a href="/" className='logo'>
-			<img className="logo-icon" src={require('./logo.png')}></img>
+			<LogoIcon className="logo-icon"/>
 			<p className="logo-text">Мастерская <br></br>
 			знаний</p>
 		</a>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PersonalMenu.css';
 
 class PersonalMenu extends React.Component {
@@ -11,18 +11,21 @@ class PersonalMenu extends React.Component {
 	};
 	
 	render() {
+		if (!this.props.user){
+			return "";
+		}
 		var menu = [
 			{
 				name: "Профиль",
 				href: "/person/"
 			},{
 				name: "Уроки",
-				href: "/person/lesson/"
+				href: "/person/lessons/"
+			},{
+				name: "Тесты",
+				href: "/person/test/"
 			},{
 				name: "Материалы",
-				href: "/person/materials/"
-			},{
-				name: "Открытые материалы",
 				href: "/person/materials/"
 			},
 		];

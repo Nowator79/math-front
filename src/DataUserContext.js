@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Cookies from 'js-cookie';
+import {HOST} from './Settings';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // Создаем контекст с начальным значением (может быть любым)
 const DataContext = React.createContext({
@@ -11,16 +13,7 @@ const DataContext = React.createContext({
 export class DataUserProvider extends React.Component {
 	constructor(props) {
 		super(props);
-		
 		var user = false;
-		// var userJson = Cookies.get("user");
-		// try{
-		// 	if (userJson) {
-		// 		user = JSON.parse(userJson);
-		// 	}
-		// }catch{
-		// 	Cookies.remove("user")
-		// }
 		this.state = {
 			user: user
 		};
@@ -28,16 +21,21 @@ export class DataUserProvider extends React.Component {
 
 	setData = (user) => {
 		this.setState({ user });
-		// Cookies.set("user", JSON.stringify(user), { 
-		// 	expires: 7, // срок жизни в днях
-		// 	path: '/',
-		// 	secure: true,
-		// 	sameSite: 'strict'
-		// });
 	};
 
 	clearData = () => {
-		this.setState({ data: null });
+		this.setState({ user: null });
+	};
+
+	logout = () => {
+		var dataUser = this;
+
+		fetch(HOST + 'api/user/logout/', {
+			method: 'POST',
+			credentials: 'include',
+		}).then((response => {
+			dataUser.clearData();
+		}));
 	};
 
 	render() {
@@ -46,14 +44,38 @@ export class DataUserProvider extends React.Component {
 				value={{
 					user: this.state.user,
 					setData: this.setData,
-					clearData: this.clearData
+					clearData: this.clearData,
+					logout: this.logout
 				}}
 			>
 				{this.props.children}
 			</DataContext.Provider>
 		);
 	}
+
+	
+	
+	componentDidMount() {
+		fetch(HOST + "api/user/get/",
+			{
+				credentials: 'include',
+			}
+		)
+		.then(res => res.json())
+		.then(
+			(result) => {
+				this.setData(
+					result.body
+				);
+			},
+		);
+	}
 }
 
 // Экспортируем сам контекст и потребитель
 export const DataConsumer = DataContext.Consumer;
+
+// Хук для удобного использования
+export function useData() {
+	return useContext(DataContext);
+}

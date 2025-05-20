@@ -5,13 +5,15 @@ class Input extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: "",
+			value: this.props.value ? this.props.value : "",
 		};
 		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleChange(event) {
-		this.props.handle(event);
+		if(this.props.handle){
+			this.props.handle(event);
+		}
 		this.setState({ value: event.target.value });
 	}
 

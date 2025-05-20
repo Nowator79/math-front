@@ -1,0 +1,28 @@
+.list-lessons{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	.list-lessons--item{
+		width: calc(calc(100% - 60px) / 3);
+			@media screen and (max-width: 991px){
+			width: 100%;
+		}
+		background-color: var(--lilac-color);
+		border-radius: 15px;
+		padding: 27px 36px;
+
+		/* text */
+		font-style: normal;
+		font-weight: 400;
+		font-size: 24px;
+		color: var(--black-color);
+		text-decoration: unset;
+		.name{
+			margin-bottom: 10px;
+		}
+		.description{
+			font-size: 15px;
+			margin: 0;
+		}
+	}
+}
